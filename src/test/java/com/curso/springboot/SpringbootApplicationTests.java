@@ -1,13 +1,13 @@
-package com.group7.clientsservice;
+package com.curso.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ClientsServiceApplicationTests {
+class SpringbootApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }
