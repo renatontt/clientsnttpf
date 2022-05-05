@@ -13,27 +13,27 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @GetMapping("/api/clientes")
+    @GetMapping("/api/clients")
     public Flux<Client> getClientAll() {
         return clientService.getAll();
     }
 
-    @GetMapping("/api/clientes/{id}")
+    @GetMapping("/api/clients/{id}")
     public Mono<Client> getClientById(@PathVariable String id) {
         return clientService.getById(id);
     }
 
-    @DeleteMapping("/api/clientes/{id}")
+    @DeleteMapping("/api/clients/{id}")
     public Mono<Void> deleteClient(@PathVariable String id) {
         return clientService.delete(id);
     }
 
-    @PostMapping("/api/clientes")
+    @PostMapping("/api/clients")
     public Mono<Client> saveCliente(@RequestBody Client cliente) {
         return clientService.save(cliente);
     }
 
-    @PutMapping("/api/clientes")
+    @PutMapping("/api/clients")
     public Mono<Client> updateCliente(@RequestBody Client cliente) {
         return clientService.update(cliente);
     }
