@@ -40,4 +40,9 @@ public class ClienteServiceImpl implements ClientService {
         return clientRepository.save(cliente);
     }
 
+    @Override
+    public Mono<Boolean> existsById(String id) {
+        return clientRepository.existsById(id);
+    }
+
 }

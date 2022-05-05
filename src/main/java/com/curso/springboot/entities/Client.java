@@ -10,13 +10,14 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-@Document("clientes")
+@Document("clients")
 public class Client {
-
     @Id
     private String id;
-    private String nombre;
-    private String tipo;
-    private String telefono;
-    private String direccion;
+    private String documentType;
+    private String documentNumber;
+    private String firstName;
+    private String lastName;
+    private String businessName;
+    private String type;
 }

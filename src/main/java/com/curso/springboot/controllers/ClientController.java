@@ -25,7 +25,8 @@ public class ClientController {
 
     @DeleteMapping("/api/clients/{id}")
     public Mono<Void> deleteClient(@PathVariable String id) {
-        return clientService.delete(id);
+        return clientService.getById(id)
+                .flatMap(c -> clientService.delete(c.getId()));
     }
 
     @PostMapping("/api/clients")
@@ -35,6 +36,7 @@ public class ClientController {
 
     @PutMapping("/api/clients")
     public Mono<Client> updateCliente(@RequestBody Client cliente) {
-        return clientService.update(cliente);
+        return clientService.getById(cliente.getId())
+                .flatMap(c -> clientService.update(c));
     }
 }

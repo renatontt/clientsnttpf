@@ -14,4 +14,6 @@ public interface ClientService {
     Mono<Client> save(Client cliente);
 
     Mono<Client> update(Client cliente);
+
+    Mono<Boolean> existsById(String id);
 }
