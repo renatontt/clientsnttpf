@@ -1,9 +1,10 @@
-package com.curso.springboot.controllers;
+package com.group7.clientsservice.controllers;
 
-import com.curso.springboot.entities.Client;
-import com.curso.springboot.entities.ClientProducts;
-import com.curso.springboot.services.IClientService;
+import com.group7.clientsservice.entities.Client;
+import com.group7.clientsservice.entities.ClientProducts;
+import com.group7.clientsservice.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -27,8 +28,7 @@ public class ClientController {
 
     @DeleteMapping("/{id}")
     public Mono<Void> deleteClient(@PathVariable String id) {
-        return iClientService.getById(id)
-                .flatMap(c -> iClientService.delete(c.getId()));
+        return iClientService.delete(id);
     }
 
     @PostMapping
@@ -36,11 +36,9 @@ public class ClientController {
         return iClientService.save(cliente);
     }
 
-    @PutMapping("/{id}")
-    public Mono<Client> updateCliente(@PathVariable String id, @RequestBody Client cliente) {
-        cliente.setId(id);
-        return iClientService.getById(id)
-                .flatMap(c -> iClientService.update(cliente));
+    @PutMapping("")
+    public Mono<Client> updateCliente(@RequestBody Client cliente) {
+        return iClientService.update(cliente);
     }
 
     @GetMapping("/{id}/products")

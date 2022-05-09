@@ -1,11 +1,13 @@
-package com.curso.springboot.serviceimpl;
+package com.group7.clientsservice.serviceimpl;
 
-import com.curso.springboot.entities.Accounts;
-import com.curso.springboot.entities.Client;
-import com.curso.springboot.entities.ClientProducts;
-import com.curso.springboot.entities.Credits;
-import com.curso.springboot.repository.ClientRepository;
-import com.curso.springboot.services.IClientService;
+import com.group7.clientsservice.entities.Accounts;
+import com.group7.clientsservice.entities.Client;
+import com.group7.clientsservice.entities.ClientProducts;
+import com.group7.clientsservice.entities.Credits;
+import com.group7.clientsservice.exception.ClientsCreationException;
+import com.group7.clientsservice.exception.ClientsNotFoundException;
+import com.group7.clientsservice.repository.ClientRepository;
+import com.group7.clientsservice.service.IClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,29 +24,46 @@ public class ClienteServiceImpl implements IClientService {
 
     @Override
     public Flux<Client> getAll() {
-        return clientRepository.findAll().doOnComplete(() -> log.info("Retrieving all Accounts"));
+        return clientRepository.findAll().doOnComplete(() -> log.info("Retrieving all Clients"));
     }
 
     @Override
 
     public Mono<Client> getById(String id) {
-        return clientRepository.findById(id);
+        return clientRepository.findById(id)
+                .switchIfEmpty(Mono.error(new ClientsNotFoundException("Clients not found with id: " + id)))
+                .doOnError(ex -> log.error("Error find client", ex));
+    }
+
+    public Mono<Client> ByDocumentTypeAndDocumentNumber(String documentType, String documentNumber) {
+        return clientRepository.findClientByDocumentTypeAndDocumentNumber(documentType, documentNumber);
     }
 
     @Override
     public Mono<Void> delete(String id) {
-        return clientRepository.deleteById(id);
+        return getById(id)
+                .flatMap(c -> clientRepository.delete(c));
     }
 
     @Override
     public Mono<Client> save(Client cliente) {
-        return clientRepository.insert(cliente)
-                .doOnSuccess(ex -> log.info("Create new client with id: {}", cliente.getId()));
+        return ByDocumentTypeAndDocumentNumber(cliente.getDocumentType(), cliente.getDocumentNumber())
+                .hasElement()
+                .flatMap(exists -> {
+                    if (exists) return Mono.error(new ClientsCreationException("Client already exists by " +
+                            "DocumentType: "+cliente.getDocumentType()+", DocumentNumber: "+ cliente.getDocumentNumber()));
+                    return clientRepository.insert(cliente);
+                })
+                .doOnSuccess(c -> log.info("Created new client with ID: {}", c.getId()))
+                .doOnError(ex -> log.error("Error creating new client ", ex));
     }
 
     @Override
     public Mono<Client> update(Client cliente) {
-        return clientRepository.save(cliente);
+        return getById(cliente.getId())
+                .flatMap(c -> clientRepository.save(c))
+                .doOnSuccess(ex -> log.info("Update Client with id: {}", cliente.getId()))
+                .doOnError(ex -> log.error("Error update Client ", ex));
     }
 
     @Override

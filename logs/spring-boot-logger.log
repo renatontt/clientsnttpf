@@ -1,14 +1,6 @@
-2022-05-09 11:06:37,829 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_333 on LIM-99WZ9C3 with PID 21352 (C:\Users\rgaraymi\IdeaProjects\ClientsService\target\classes started by rgaraymi in C:\Users\rgaraymi\IdeaProjects\ClientsService)
-2022-05-09 11:06:37,833 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-05-09 11:08:42,407 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_333 on LIM-99WZ9C3 with PID 20776 (C:\Users\rgaraymi\IdeaProjects\ClientsService\target\classes started by rgaraymi in C:\Users\rgaraymi\IdeaProjects\ClientsService)
-2022-05-09 11:08:42,411 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-05-09 11:08:47,070 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 8.223 seconds (JVM running for 9.841)
-2022-05-09 11:10:43,821 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_333 on LIM-99WZ9C3 with PID 7960 (C:\Users\rgaraymi\IdeaProjects\ClientsService\target\classes started by rgaraymi in C:\Users\rgaraymi\IdeaProjects\ClientsService)
-2022-05-09 11:10:43,824 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-05-09 11:10:48,538 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 6.544 seconds (JVM running for 8.022)
-2022-05-09 11:15:52,843 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_333 on LIM-99WZ9C3 with PID 3104 (C:\Users\rgaraymi\IdeaProjects\ClientsService\target\classes started by rgaraymi in C:\Users\rgaraymi\IdeaProjects\ClientsService)
-2022-05-09 11:15:52,846 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-05-09 11:15:57,827 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 6.684 seconds (JVM running for 8.258)
-2022-05-09 11:36:16,935 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_333 on LIM-99WZ9C3 with PID 18856 (C:\Users\rgaraymi\IdeaProjects\ClientsService\target\classes started by rgaraymi in C:\Users\rgaraymi\IdeaProjects\ClientsService)
-2022-05-09 11:36:16,937 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-05-09 11:36:20,261 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 4.487 seconds (JVM running for 5.637)
+2022-05-09 16:46:01,344 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
+2022-05-09 16:49:27,462 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_331 on CristianM with PID 26648 (C:\Cristian\Cursos\Everis-Microservicios\Clase1\Workspace\ClientsService\target\classes started by Cristian Muñoz in C:\Cristian\Cursos\Everis-Microservicios\Clase1\Workspace\ClientsService)
+2022-05-09 16:49:27,464 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-05-09 16:49:29,278 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 3.276 seconds (JVM running for 3.666)
+2022-05-09 16:49:31,554 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
+2022-05-09 16:49:51,436 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients

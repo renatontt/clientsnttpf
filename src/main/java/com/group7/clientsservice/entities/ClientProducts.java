@@ -1,4 +1,4 @@
-package com.curso.springboot.entities;
+package com.group7.clientsservice.entities;
 
 import lombok.Getter;
 import lombok.Setter;

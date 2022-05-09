@@ -1,21 +1,16 @@
-package com.curso.springboot.entities;
+package com.group7.clientsservice.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 @Getter
 @Setter
 @Document("clients")
 @AllArgsConstructor
 public class Client {
 
-    @Id
     private String id;
     private String documentType;
     private String documentNumber;

@@ -62,7 +62,7 @@
     </root>
 
     <!-- LOG "com.group7.*" at TRACE level -->
-    <logger name="com.curso.springboot" level="info" additivity="false">
+    <logger name="com.group7" level="info" additivity="false">
         <appender-ref ref="SevereRollingFile" />
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />

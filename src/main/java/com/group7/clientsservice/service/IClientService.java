@@ -1,7 +1,7 @@
-package com.curso.springboot.services;
+package com.group7.clientsservice.service;
 
-import com.curso.springboot.entities.Client;
-import com.curso.springboot.entities.ClientProducts;
+import com.group7.clientsservice.entities.Client;
+import com.group7.clientsservice.entities.ClientProducts;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

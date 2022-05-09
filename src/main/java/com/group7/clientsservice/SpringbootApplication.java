@@ -1,4 +1,4 @@
-package com.curso.springboot;
+package com.group7.clientsservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

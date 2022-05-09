@@ -1,15 +1,12 @@
-package com.curso.springboot.entities;
+package com.group7.clientsservice.entities;
 
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Id;
-
 @Getter
 @Setter
-public class Credits {
+public class Accounts {
 
-    @Id
     private String id;
     private String type;
     private String idClient;
