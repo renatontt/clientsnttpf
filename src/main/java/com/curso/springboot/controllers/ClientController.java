@@ -9,39 +9,41 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
+@RequestMapping("/clients")
 public class ClientController {
 
     @Autowired
     private IClientService iClientService;
 
-    @GetMapping("/api/clients")
+    @GetMapping
     public Flux<Client> getClientAll() {
         return iClientService.getAll();
     }
 
-    @GetMapping("/api/clients/{id}")
+    @GetMapping("/{id}")
     public Mono<Client> getClientById(@PathVariable String id) {
         return iClientService.getById(id);
     }
 
-    @DeleteMapping("/api/clients/{id}")
+    @DeleteMapping("/{id}")
     public Mono<Void> deleteClient(@PathVariable String id) {
         return iClientService.getById(id)
                 .flatMap(c -> iClientService.delete(c.getId()));
     }
 
-    @PostMapping("/api/clients")
+    @PostMapping
     public Mono<Client> saveCliente(@RequestBody Client cliente) {
         return iClientService.save(cliente);
     }
 
-    @PutMapping("/api/clients/{id}/clients")
-    public Mono<Client> updateCliente(@RequestBody Client cliente) {
-        return iClientService.getById(cliente.getId())
-                .flatMap(c -> iClientService.update(c));
+    @PutMapping("/{id}")
+    public Mono<Client> updateCliente(@PathVariable String id, @RequestBody Client cliente) {
+        cliente.setId(id);
+        return iClientService.getById(id)
+                .flatMap(c -> iClientService.update(cliente));
     }
 
-    @GetMapping("/api/clients/{id}/products")
+    @GetMapping("/{id}/products")
     public Mono<ClientProducts> getProductsByClient(@PathVariable String id) {
         return iClientService.getProductsByClient(id);
     }

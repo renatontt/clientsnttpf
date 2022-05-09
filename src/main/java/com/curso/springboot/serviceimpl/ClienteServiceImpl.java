@@ -6,6 +6,7 @@ import com.curso.springboot.entities.ClientProducts;
 import com.curso.springboot.entities.Credits;
 import com.curso.springboot.repository.ClientRepository;
 import com.curso.springboot.services.IClientService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -13,6 +14,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
+@Slf4j
 public class ClienteServiceImpl implements IClientService {
 
     @Autowired
@@ -20,7 +22,7 @@ public class ClienteServiceImpl implements IClientService {
 
     @Override
     public Flux<Client> getAll() {
-        return (Flux<Client>) clientRepository.findAll();
+        return clientRepository.findAll().doOnComplete(() -> log.info("Retrieving all Accounts"));
     }
 
     @Override
@@ -36,7 +38,8 @@ public class ClienteServiceImpl implements IClientService {
 
     @Override
     public Mono<Client> save(Client cliente) {
-        return clientRepository.insert(cliente);
+        return clientRepository.insert(cliente)
+                .doOnSuccess(ex -> log.info("Create new client with id: {}", cliente.getId()));
     }
 
     @Override
@@ -70,7 +73,7 @@ public class ClienteServiceImpl implements IClientService {
     private Flux<Accounts> getAccounts(String id) {
         Flux<Accounts> accounts = WebClient.create()
                 .get()
-                .uri("http://localhost:8081/api/accounts/client/{id}", id)
+                .uri("http://localhost:8081/accounts/client/{id}", id)
                 .retrieve()
                 .bodyToFlux(Accounts.class);
         return accounts;
