@@ -1,15 +1,19 @@
 package com.curso.springboot.serviceimpl;
 
+import com.curso.springboot.entities.Accounts;
 import com.curso.springboot.entities.Client;
+import com.curso.springboot.entities.ClientProducts;
+import com.curso.springboot.entities.Credits;
 import com.curso.springboot.repository.ClientRepository;
-import com.curso.springboot.services.ClientService;
+import com.curso.springboot.services.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-public class ClienteServiceImpl implements ClientService {
+public class ClienteServiceImpl implements IClientService {
 
     @Autowired
     private ClientRepository clientRepository;
@@ -43,6 +47,42 @@ public class ClienteServiceImpl implements ClientService {
     @Override
     public Mono<Boolean> existsById(String id) {
         return clientRepository.existsById(id);
+    }
+
+    public Mono<ClientProducts> getProductsByClient(String id) {
+        return getById(id)
+                .flatMap(c -> {
+                    ClientProducts clientProducts = new ClientProducts();
+                    clientProducts.setClient(c);
+                    return getAccounts(c.getId())
+                            .collectList()
+                            .flatMap(acc -> {
+                                clientProducts.setAccounts(acc);
+                                return getCredits(c.getId())
+                                        .collectList()
+                                        .flatMap(cred -> {
+                                            clientProducts.setCredits(cred);
+                                            return Mono.just(clientProducts);
+                                        });
+                            });
+                });
+    }
+    private Flux<Accounts> getAccounts(String id) {
+        Flux<Accounts> accounts = WebClient.create()
+                .get()
+                .uri("http://localhost:8081/api/accounts/client/{id}", id)
+                .retrieve()
+                .bodyToFlux(Accounts.class);
+        return accounts;
+    }
+
+    private Flux<Credits> getCredits(String id) {
+        Flux<Credits> credits = WebClient.create()
+                .get()
+                .uri("http://localhost:8082/api/credits/client/{id}", id)
+                .retrieve()
+                .bodyToFlux(Credits.class);
+        return credits;
     }
 
 }

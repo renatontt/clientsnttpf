@@ -1,5 +1,6 @@
 package com.curso.springboot.entities;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,7 +12,9 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Document("clients")
+@AllArgsConstructor
 public class Client {
+
     @Id
     private String id;
     private String documentType;
