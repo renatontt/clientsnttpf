@@ -1,3 +1,9 @@
+2022-05-09 17:06:59,073 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_331 on CristianM with PID 8004 (C:\Cristian\Cursos\Everis-Microservicios\Clase1\Workspace\ClientsService\target\classes started by Cristian Muñoz in C:\Cristian\Cursos\Everis-Microservicios\Clase1\Workspace\ClientsService)
+2022-05-09 17:06:59,075 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-05-09 17:07:01,010 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 3.856 seconds (JVM running for 4.553)
+2022-05-09 17:14:09,029 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
+2022-05-09 18:15:22,412 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
+2022-05-09 18:15:35,126 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Created new client with ID: 6279a0975b5f7177c1bf6d8a
 2022-05-09 18:15:37,481 ERROR com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Error creating new client 
 com.group7.clientsservice.exception.ClientsCreationException: Client already exists by DocumentType: DNI, DocumentNumber: 10225478461
 	at com.group7.clientsservice.serviceimpl.ClienteServiceImpl.lambda$save$3(ClienteServiceImpl.java:54)

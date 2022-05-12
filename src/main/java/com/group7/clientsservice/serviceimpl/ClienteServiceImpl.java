@@ -80,13 +80,16 @@ public class ClienteServiceImpl implements IClientService {
                             .collectList()
                             .flatMap(acc -> {
                                 clientProducts.setAccounts(acc);
-                                return getCredits(c.getId())
+                                return Mono.just(clientProducts);
+                                /*return getCredits(c.getId())
                                         .collectList()
                                         .flatMap(cred -> {
                                             clientProducts.setCredits(cred);
                                             return Mono.just(clientProducts);
                                         });
-                            });
+                                 */
+                            })
+                            .doOnError(ex -> log.error("Error find Accounts by Client ", ex));
                 });
     }
     private Flux<Accounts> getAccounts(String id) {

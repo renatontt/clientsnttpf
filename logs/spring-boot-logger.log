@@ -1,6 +1,4 @@
-2022-05-09 16:46:01,344 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
-2022-05-09 16:49:27,462 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_331 on CristianM with PID 26648 (C:\Cristian\Cursos\Everis-Microservicios\Clase1\Workspace\ClientsService\target\classes started by Cristian Muñoz in C:\Cristian\Cursos\Everis-Microservicios\Clase1\Workspace\ClientsService)
-2022-05-09 16:49:27,464 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-05-09 16:49:29,278 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 3.276 seconds (JVM running for 3.666)
-2022-05-09 16:49:31,554 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
-2022-05-09 16:49:51,436 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
+2022-05-10 19:54:10,699 INFO org.springframework.boot.StartupInfoLogger [main] Starting SpringbootApplication using Java 1.8.0_331 on CristianM with PID 29712 (C:\Cristian\Cursos\Everis-Microservicios\Proyecto1\Workspace\ClientsService\target\classes started by Cristian Muñoz in C:\Cristian\Cursos\Everis-Microservicios\Proyecto1\Workspace\ClientsService)
+2022-05-10 19:54:10,702 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-05-10 19:54:12,762 INFO org.springframework.boot.StartupInfoLogger [main] Started SpringbootApplication in 5.506 seconds (JVM running for 5.907)
+2022-05-10 19:54:16,235 INFO com.group7.clientsservice.serviceimpl.ClienteServiceImpl [nioEventLoopGroup-3-7] Retrieving all Clients
