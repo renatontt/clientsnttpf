@@ -19,4 +19,5 @@ public class Client {
     private String lastName;
     private String businessName;
     private String type;
+    private String profile;
 }
