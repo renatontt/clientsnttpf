@@ -1,7 +1,9 @@
 package com.group7.clientsservice.service;
 
-import com.group7.clientsservice.entities.Client;
-import com.group7.clientsservice.entities.ClientProducts;
+import com.group7.clientsservice.dto.ClientsRequestDto;
+import com.group7.clientsservice.dto.ClientsResponseDto;
+import com.group7.clientsservice.model.Client;
+import com.group7.clientsservice.model.ClientProducts;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -12,9 +14,9 @@ public interface IClientService {
 
     Mono<Void> delete(String id);
 
-    Mono<Client> save(Client cliente);
+    Mono<ClientsResponseDto> save(ClientsRequestDto clientsDto);
 
-    Mono<Client> update(Client cliente);
+    Mono<ClientsResponseDto> update(String id, ClientsRequestDto cliente);
 
     Mono<Boolean> existsById(String id);
 

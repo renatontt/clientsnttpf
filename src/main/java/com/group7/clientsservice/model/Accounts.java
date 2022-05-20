@@ -1,4 +1,4 @@
-package com.group7.clientsservice.entities;
+package com.group7.clientsservice.model;
 
 import lombok.Getter;
 import lombok.Setter;

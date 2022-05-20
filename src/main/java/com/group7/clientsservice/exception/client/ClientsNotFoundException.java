@@ -1,4 +1,4 @@
-package com.group7.clientsservice.exception;
+package com.group7.clientsservice.exception.client;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,7 +1,9 @@
 package com.group7.clientsservice.controllers;
 
-import com.group7.clientsservice.entities.Client;
-import com.group7.clientsservice.entities.ClientProducts;
+import com.group7.clientsservice.dto.ClientsRequestDto;
+import com.group7.clientsservice.dto.ClientsResponseDto;
+import com.group7.clientsservice.model.Client;
+import com.group7.clientsservice.model.ClientProducts;
 import com.group7.clientsservice.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,14 +33,15 @@ public class ClientController {
         return iClientService.delete(id);
     }
 
-    @PostMapping
-    public Mono<Client> saveCliente(@RequestBody Client cliente) {
-        return iClientService.save(cliente);
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public Mono<ClientsResponseDto> saveCliente(@RequestBody ClientsRequestDto clientsDto) {
+        return iClientService.save(clientsDto);
     }
 
-    @PutMapping("")
-    public Mono<Client> updateCliente(@RequestBody Client cliente) {
-        return iClientService.update(cliente);
+    @PutMapping("/{id}")
+    public Mono<ClientsResponseDto> updateCliente(@PathVariable String id, @RequestBody ClientsRequestDto cliente) {
+        return iClientService.update(id, cliente);
     }
 
     @GetMapping("/{id}/products")
