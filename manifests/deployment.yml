@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clientsservice
+  labels:
+    app: clientsservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: clientsservice
+  template:
+    metadata:
+      labels:
+        app: clientsservice
+        service: clientsservice
+    spec:
+      containers:
+        - name: clientsservice
+          image: clientsservice.azurecr.io/clientsservice:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+            - name: WebApiBaseAddress
+              value: http://webapi
