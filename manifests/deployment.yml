@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: clientsservice
+  name: clientsnttpf
   labels:
-    app: clientsservice
+    app: clientsnttpf
 spec:
   replicas: 1
   selector:
     matchLabels:
-      service: clientsservice
+      service: clientsnttpf
   template:
     metadata:
       labels:
-        app: clientsservice
-        service: clientsservice
+        app: clientsnttpf
+        service: clientsnttpf
     spec:
       containers:
-        - name: clientsservice
-          image: clientsservice.azurecr.io/clientsservice:v1
+        - name: clientsnttpf
+          image: clientsnttpf.azurecr.io/clientsnttpf:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

@@ -5,7 +5,7 @@ on:
 
 env:
   ACR_LOGON_SERVER: ${{ secrets.ACR_NAME }}.azurecr.io
-  IMAGE_NAME: ${{ secrets.ACR_NAME }}.azurecr.io/clientsservice:${{ github.sha }}
+  IMAGE_NAME: ${{ secrets.ACR_NAME }}.azurecr.io/clientsnttpf:${{ github.sha }}
 
 jobs:
     build-deploy-image:

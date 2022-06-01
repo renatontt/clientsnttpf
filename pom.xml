@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.group7</groupId>
-	<artifactId>clients-service</artifactId>
+	<artifactId>clientsnttpf</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ClientsService</name>
-	<description>ClientsService</description>
+	<name>clientsnttpf</name>
+	<description>clientsnttpf</description>
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>2021.0.2</spring-cloud.version>
