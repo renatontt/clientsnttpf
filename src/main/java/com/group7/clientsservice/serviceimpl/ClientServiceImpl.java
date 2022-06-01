@@ -104,7 +104,7 @@ public class ClientServiceImpl implements IClientService {
     private Flux<Accounts> getAccounts(String id) {
         return WebClient.create()
                 .mutate()
-                .baseUrl("http://localhost:8081/accounts/client")
+                .baseUrl("http://accountsnttpf:8081/accounts/client")
                 .build()
                 .get()
                 .uri("/{id}", id)
